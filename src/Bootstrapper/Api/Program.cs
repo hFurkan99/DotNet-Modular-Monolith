@@ -1,5 +1,3 @@
-using Shared.Exceptions.Handlers;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host
@@ -8,8 +6,15 @@ builder.Host
 
 // Add services to the container.
 
+//common services: carter, mediatr, fluentvalidation, masstransit
+var catalogAssembly = typeof(CatalogModule).Assembly;
+var basketAssembly = typeof(BasketModule).Assembly;
+
 builder.Services
-    .AddCarterWithAssemblies(typeof(CatalogModule).Assembly);
+    .AddCarterWithAssemblies(catalogAssembly, basketAssembly);
+
+builder.Services
+    .AddMediatRWithAssemblies(catalogAssembly, basketAssembly);
 
 builder.Services
     .AddCatalogModule(builder.Configuration)

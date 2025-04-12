@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shared.Data.Interceptors;
 
 namespace Basket
 {
@@ -10,10 +11,22 @@ namespace Basket
         {
             // Add services to the container.
 
-            //services
-            //    .AddApplicationServices()
-            //    .AddInfrastructureServices(configuration)
-            //    .AddApiServices(configuration);
+            // Api Endpoint services
+
+            // Application Use Case services
+            services.AddScoped<IBasketRepository, BasketRepository>();
+            
+            // Data - Infrastructure services
+            var connectionString = configuration.GetConnectionString("Database");
+
+            services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
+            services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
+
+            services.AddDbContext<BasketDbContext>((sp, options) =>
+            {
+                options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
+                options.UseNpgsql(connectionString);
+            });
 
             return services;
         }
@@ -21,12 +34,14 @@ namespace Basket
         public static IApplicationBuilder UseBasketModule(this IApplicationBuilder app)
         {
 
-            // Container the HTTP request pipeline.
+            // Configure the HTTP request pipeline.
 
-            //services
-            //    .UseApplicationServices()
-            //    .UseInfrastructureServices(configuration)
-            //    .UseApiServices(configuration);
+            // Use Api Endpoint services
+
+            // Use Application Use Case services
+
+            // Use Data - Infrastructure services
+            app.UseMigration<BasketDbContext>();
 
             return app;
         }

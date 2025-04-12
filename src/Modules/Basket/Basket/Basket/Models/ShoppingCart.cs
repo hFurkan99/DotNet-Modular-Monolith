@@ -1,4 +1,4 @@
-﻿using Shared.DDD;
+﻿using Shared.Exceptions;
 
 namespace Basket.Basket.Models
 {
@@ -43,12 +43,10 @@ namespace Basket.Basket.Models
 
         public void RemoveItem(Guid productId)
         {
-            var existingItem = Items.FirstOrDefault(x => x.ProductId == productId);
-
-            if (existingItem != null)
-            {
-                _items.Remove(existingItem);
-            }
+            var existingItem = Items.FirstOrDefault(x => x.ProductId == productId) 
+                ?? throw new NotFoundException("product", productId);
+         
+            _items.Remove(existingItem);
         }
     }
 }
