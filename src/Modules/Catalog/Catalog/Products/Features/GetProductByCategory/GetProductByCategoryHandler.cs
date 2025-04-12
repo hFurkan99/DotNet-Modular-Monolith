@@ -5,7 +5,6 @@
 
     public record GetProductByCategoryResult(IEnumerable<ProductDto> Products);
 
-
     internal class GetProductByCategoryHandler(CatalogDbContext dbContext)
         : IQueryHandler<GetProductByCategoryQuery, GetProductByCategoryResult>
     {

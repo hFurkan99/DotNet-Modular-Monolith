@@ -4,7 +4,16 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "api": "StartDebugging"
+        "eshopdb": "StartWithoutDebugging",
+        "seq": "StartWithoutDebugging"
+      }
+    },
+    "DotNet-Modular-Monolith": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "eshopdb": "StartWithoutDebugging",
+        "seq": "StartWithoutDebugging"
       }
     }
   }

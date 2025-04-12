@@ -13,7 +13,7 @@
             var product = await dbContext.Products
                 .AsNoTracking()
                 .SingleOrDefaultAsync(p => p.Id == query.ProductId, cancellationToken) 
-                ?? throw new Exception($"Product not found: {query.ProductId}");
+                ?? throw new ProductNotFoundException(query.ProductId);
 
             var productDto = product.Adapt<ProductDto>();
 

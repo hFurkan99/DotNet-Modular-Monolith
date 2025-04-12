@@ -1,8 +1,15 @@
- version: '3.4'
- 
- services:
-   eshopdb:
-     image: postgres
+version: '3.4'
 
- volumes:
-   postgres_eshopdb:  
+services:
+  eshopdb:
+    image: postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+
+  seq:
+    image: datalust/seq:latest
+
+volumes:
+  postgres_eshopdb:
+  pgadmin_data:  

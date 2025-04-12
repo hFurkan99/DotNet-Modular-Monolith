@@ -2,8 +2,8 @@
 
 namespace Shared.CQRS
 {
-    public interface IQuery<out T> : IRequest<T>
-        where T : notnull
+    public interface IQuery<out TResponse> : IRequest<TResponse>
+        where TResponse : notnull
     {
     }
 }
