@@ -7,6 +7,9 @@ services:
   pgadmin:
     image: dpage/pgadmin4
 
+  distributedcache:
+    image: redis
+
   seq:
     image: datalust/seq:latest
 

@@ -22,7 +22,13 @@ services:
     ports:
       - "5050:80"
     volumes:
-      - pgadmin_data:/var/lib/pgadmin 
+      - pgadmin_data:/var/lib/pgadmin
+
+  distributedcache:
+    container_name: distributedcache
+    restart: always
+    ports:
+      - "6379:6379"
 
   seq:
     container_name: seq

@@ -30,7 +30,7 @@
                     command.ShoppingCartItem.Price,
                     command.ShoppingCartItem.ProductName);
 
-            await repository.SaveChangesAsync(null, cancellationToken);
+            await repository.SaveChangesAsync(command.UserName, cancellationToken);
 
             return new AddItemIntoBasketResult(shoppingCart.Id);
         }

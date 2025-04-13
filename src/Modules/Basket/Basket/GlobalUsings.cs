@@ -16,3 +16,6 @@ global using Microsoft.AspNetCore.Routing;
 global using Microsoft.AspNetCore.Mvc;
 global using Basket.Basket.Exceptions;
 global using Basket.Data.Repository;
+global using Shared.Exceptions;
+global using System.Text.Json.Serialization;
+global using System.Text.Json;

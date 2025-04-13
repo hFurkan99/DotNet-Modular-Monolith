@@ -9,11 +9,8 @@
                 .Include(x => x.Items)
                 .Where(x => x.UserName == userName);
 
-            if (asNoTracking)
-            {
-                query.AsNoTracking();
-            }
-
+            if (asNoTracking) query.AsNoTracking();
+            
             var basket = await query.SingleOrDefaultAsync(cancellationToken);
 
             return basket ?? throw new BasketNotFoundException(userName);
