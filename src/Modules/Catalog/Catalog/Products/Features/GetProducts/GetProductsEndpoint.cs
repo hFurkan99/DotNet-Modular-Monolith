@@ -17,11 +17,11 @@ namespace Catalog.Products.Features.GetProducts
 
                 return Results.Ok(response);
             })
-                .WithName("GetProducts")
-                .Produces<GetProductsResponse>(StatusCodes.Status200OK)
-                .ProducesProblem(StatusCodes.Status400BadRequest)
-                .WithSummary("Get Products")
-                .WithDescription("Get Products");
+            .WithName("GetProducts")
+            .Produces<GetProductsResponse>(StatusCodes.Status200OK)
+            .ProducesProblem(StatusCodes.Status400BadRequest)
+            .WithSummary("Get Products")
+            .WithDescription("Get Products");
         }
     }
 }

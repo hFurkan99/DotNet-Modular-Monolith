@@ -8,16 +8,16 @@
         public void AddRoutes(IEndpointRouteBuilder app)
         {
             app.MapPost("/basket",
-                async (CreateBasketRequest request, ISender sender) =>
-                {
-                    var command = request.Adapt<CreateBasketCommand>();
+            async (CreateBasketRequest request, ISender sender) =>
+            {
+                var command = request.Adapt<CreateBasketCommand>();
 
-                    var result = await sender.Send(command);
+                var result = await sender.Send(command);
 
-                    var response = result.Adapt<CreateBasketResponse>();
+                var response = result.Adapt<CreateBasketResponse>();
 
-                    return Results.Created($"/basket/{response.Id}", response);
-                })
+                return Results.Created($"/basket/{response.Id}", response);
+            })
             .Produces<CreateBasketResponse>(StatusCodes.Status201Created)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Create Basket")

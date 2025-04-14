@@ -14,11 +14,11 @@
 
                 return Results.Ok(response);
             })
-                .WithName("GetProductByCategory")
-                .Produces<GetProductByCategoryResponse>(StatusCodes.Status200OK)
-                .ProducesProblem(StatusCodes.Status400BadRequest)
-                .WithSummary("Get Product By Category")
-                .WithDescription("Get Product By Category");
+            .WithName("GetProductByCategory")
+            .Produces<GetProductByCategoryResponse>(StatusCodes.Status200OK)
+            .ProducesProblem(StatusCodes.Status400BadRequest)
+            .WithSummary("Get Product By Category")
+            .WithDescription("Get Product By Category");
         }
     }
 }

@@ -15,12 +15,12 @@
 
                 return Results.Ok(response);
             })
-                .WithName("UpdateProduct")
-                .Produces<UpdateProductResponse>(StatusCodes.Status200OK)
-                .ProducesProblem(StatusCodes.Status400BadRequest)
-                .ProducesProblem(StatusCodes.Status404NotFound)
-                .WithSummary("Update Product")
-                .WithDescription("Update Product");
+            .WithName("UpdateProduct")
+            .Produces<UpdateProductResponse>(StatusCodes.Status200OK)
+            .ProducesProblem(StatusCodes.Status400BadRequest)
+            .ProducesProblem(StatusCodes.Status404NotFound)
+            .WithSummary("Update Product")
+            .WithDescription("Update Product");
         }
     }
 }

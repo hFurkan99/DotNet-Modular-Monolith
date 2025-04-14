@@ -15,11 +15,11 @@
 
                 return Results.Created($"/products/{response.ProductId}", response);
             })
-                .WithName("CreateProduct")
-                .Produces<CreateProductResponse>(StatusCodes.Status201Created)
-                .ProducesProblem(StatusCodes.Status400BadRequest)
-                .WithSummary("Create Product")
-                .WithDescription("Create Product");
+            .WithName("CreateProduct")
+            .Produces<CreateProductResponse>(StatusCodes.Status201Created)
+            .ProducesProblem(StatusCodes.Status400BadRequest)
+            .WithSummary("Create Product")
+            .WithDescription("Create Product");
         }
     }
 }

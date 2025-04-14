@@ -7,7 +7,7 @@ global using Shared.Data;
 global using Microsoft.AspNetCore.Builder;
 global using Basket.Basket.Dtos;
 global using FluentValidation;
-global using Shared.CQRS;
+global using Shared.Contracts.CQRS;
 global using Carter;
 global using Mapster;
 global using MediatR;
