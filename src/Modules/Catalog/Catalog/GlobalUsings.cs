@@ -20,3 +20,5 @@ global using FluentValidation;
 global using Catalog.Products.Exceptions;
 global using Catalog.Contracts.Products.Dtos;
 global using Catalog.Contracts.Products.Features.GetProductById;
+global using MassTransit;
+global using Shared.Messaging.Events;
