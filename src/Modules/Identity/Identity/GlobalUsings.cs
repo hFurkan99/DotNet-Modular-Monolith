@@ -1,0 +1,11 @@
+﻿global using FluentValidation;
+global using Microsoft.Extensions.Configuration;
+global using Shared.Contracts.CQRS;
+global using System.Text.Json;
+global using Carter;
+global using Microsoft.AspNetCore.Routing;
+global using Microsoft.AspNetCore.Mvc;
+global using MediatR;
+global using Mapster;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Builder;

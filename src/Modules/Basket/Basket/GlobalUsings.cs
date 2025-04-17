@@ -19,3 +19,4 @@ global using Basket.Data.Repository;
 global using Shared.Exceptions;
 global using System.Text.Json.Serialization;
 global using System.Text.Json;
+global using System.Security.Claims;

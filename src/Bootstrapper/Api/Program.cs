@@ -9,12 +9,13 @@ builder.Host
 //common services: carter, mediatr, fluentvalidation, masstransit
 var catalogAssembly = typeof(CatalogModule).Assembly;
 var basketAssembly = typeof(BasketModule).Assembly;
+var identityAssembly = typeof(IdentityModule).Assembly;
 
 builder.Services
-    .AddCarterWithAssemblies(catalogAssembly, basketAssembly);
+    .AddCarterWithAssemblies(catalogAssembly, basketAssembly, identityAssembly);
 
 builder.Services
-    .AddMediatRWithAssemblies(catalogAssembly, basketAssembly);
+    .AddMediatRWithAssemblies(catalogAssembly, basketAssembly, identityAssembly);
 
 builder.Services.AddStackExchangeRedisCache(options =>
 {
@@ -24,10 +25,18 @@ builder.Services.AddStackExchangeRedisCache(options =>
 builder.Services
     .AddMassTransitWithAssemblies(builder.Configuration, catalogAssembly, basketAssembly);
 
+builder.Services.AddKeycloakWebApiAuthentication(builder.Configuration);
+builder.Services.AddAuthorization();
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddHttpClient();
+
 builder.Services
     .AddCatalogModule(builder.Configuration)
     .AddBasketModule(builder.Configuration)
-    .AddOrderingModule(builder.Configuration);
+    .AddOrderingModule(builder.Configuration)
+    .AddIdentityModule();
 
 builder.Services
     .AddExceptionHandler<CustomExceptionHandler>();
@@ -39,10 +48,13 @@ var app = builder.Build();
 app.MapCarter();
 app.UseSerilogRequestLogging();
 app.UseExceptionHandler(options => { });
+app.UseAuthentication();
+app.UseAuthorization();
 
 app
     .UseCatalogModule()
     .UseBasketModule()
-    .UseOrderingModule();
+    .UseOrderingModule()
+    .UseIdentityModule();
 
 app.Run();
