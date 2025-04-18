@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Identity.Keycloak.Features.Login;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Identity
 {
@@ -11,7 +12,7 @@ namespace Identity
             // Api Endpoint services
 
             // Application Use Case services
-
+            services.AddHttpClient<LoginHandler>();
             // Data - Infrastructure services
             return services;
         }

@@ -6,16 +6,16 @@ builder.Host
 
 // Add services to the container.
 
-//common services: carter, mediatr, fluentvalidation, masstransit
 var catalogAssembly = typeof(CatalogModule).Assembly;
 var basketAssembly = typeof(BasketModule).Assembly;
 var identityAssembly = typeof(IdentityModule).Assembly;
+var orderingAssembly = typeof(OrderingModule).Assembly;
 
 builder.Services
-    .AddCarterWithAssemblies(catalogAssembly, basketAssembly, identityAssembly);
+    .AddCarterWithAssemblies(catalogAssembly, basketAssembly, identityAssembly, orderingAssembly);
 
 builder.Services
-    .AddMediatRWithAssemblies(catalogAssembly, basketAssembly, identityAssembly);
+    .AddMediatRWithAssemblies(catalogAssembly, basketAssembly, identityAssembly, orderingAssembly);
 
 builder.Services.AddStackExchangeRedisCache(options =>
 {
@@ -29,8 +29,6 @@ builder.Services.AddKeycloakWebApiAuthentication(builder.Configuration);
 builder.Services.AddAuthorization();
 
 builder.Services.AddHttpContextAccessor();
-
-builder.Services.AddHttpClient();
 
 builder.Services
     .AddCatalogModule(builder.Configuration)
