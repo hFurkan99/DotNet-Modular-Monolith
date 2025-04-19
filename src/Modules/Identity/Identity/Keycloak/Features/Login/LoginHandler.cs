@@ -18,9 +18,9 @@
     {
         public async Task<LoginResult> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
-            var tokenUrl = configuration["Keycloak:token-url"];
-            var resource = configuration["Keycloak:resource"];
-            var clientSecret = configuration["Keycloak:client-secret"];
+            var tokenUrl = configuration["Keycloak:TokenUrl"];
+            var resource = configuration["Keycloak:Resource"];
+            var clientSecret = configuration["Keycloak:ClientSecret"];
 
             var form = new Dictionary<string, string>
             {

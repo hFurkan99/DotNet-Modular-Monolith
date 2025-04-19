@@ -1,7 +1,6 @@
 ﻿using Basket.Basket.Features.UpdateItemPriceInBasket;
 using MassTransit;
 using Microsoft.Extensions.Logging;
-using Shared.Messaging.Events;
 
 namespace Basket.Basket.EventHandlers
 {

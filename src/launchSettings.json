@@ -5,7 +5,8 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "eshopdb": "StartWithoutDebugging",
-        "seq": "StartWithoutDebugging"
+        "seq": "StartWithoutDebugging",
+        "api": "StartDebugging"
       }
     },
     "DotNet-Modular-Monolith": {
@@ -13,7 +14,8 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "eshopdb": "StartWithoutDebugging",
-        "seq": "StartWithoutDebugging"
+        "seq": "StartWithoutDebugging",
+        "api": "StartDebugging"
       }
     }
   }

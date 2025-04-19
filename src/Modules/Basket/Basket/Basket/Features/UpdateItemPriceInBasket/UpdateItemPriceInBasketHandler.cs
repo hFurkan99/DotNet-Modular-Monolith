@@ -23,10 +23,8 @@
                   .ToListAsync(cancellationToken);
 
             if (itemsToUpdate.Count == 0)
-            {
                 return new UpdateItemPriceInBasketResult(false);
-            }
-
+            
             foreach (var item in itemsToUpdate)
             {
                 item.UpdatePrice(command.Price);

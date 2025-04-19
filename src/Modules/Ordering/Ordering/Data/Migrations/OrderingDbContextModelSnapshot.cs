@@ -93,11 +93,6 @@ namespace Ordering.Data.Migrations
                         {
                             b1.IsRequired();
 
-                            b1.Property<string>("CVV")
-                                .IsRequired()
-                                .HasMaxLength(3)
-                                .HasColumnType("character varying(3)");
-
                             b1.Property<string>("CardName")
                                 .HasMaxLength(50)
                                 .HasColumnType("character varying(50)");
@@ -106,6 +101,11 @@ namespace Ordering.Data.Migrations
                                 .IsRequired()
                                 .HasMaxLength(24)
                                 .HasColumnType("character varying(24)");
+
+                            b1.Property<string>("Cvv")
+                                .IsRequired()
+                                .HasMaxLength(3)
+                                .HasColumnType("character varying(3)");
 
                             b1.Property<string>("Expiration")
                                 .IsRequired()
